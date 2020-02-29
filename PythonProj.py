@@ -145,6 +145,8 @@ print(f"Total Request in November: {nov1}")
 print(f"Total Request in December: {dec1}\n")
 
 print(total, "\n")
+print(len(remote), "\n")
+print(len(local), "\n")
 
 print(f"Total Requests: {total_requests}\n")
 print(f"Total 4xx errors: {failed_req}")
