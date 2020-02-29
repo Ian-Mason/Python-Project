@@ -79,29 +79,29 @@ with open(LOCAL_FILE, 'r') as file:
              
              
      for k in remote:
-         if k[14:17] == 'Jan':
+         if k[15:18] == 'Jan':
              jan.append(k)
-         if k[14:17] == 'Feb':
+         if k[15:18] == 'Feb':
              feb.append(k)
-         if k[14:17] == 'Mar':
+         if k[15:18] == 'Mar':
              mar.append(k)
-         if k[14:17] == 'Apr':
+         if k[15:18] == 'Apr':
              apr.append(k)
-         if k[14:17] == 'May':
+         if k[15:18] == 'May':
              may.append(k)
-         if k[14:17] == 'Jun':
+         if k[15:18] == 'Jun':
              jun.append(k)
-         if k[14:17] == 'Jul':
+         if k[15:18] == 'Jul':
              jul.append(k)
-         if k[14:17] == 'Aug':
+         if k[15:18] == 'Aug':
              aug.append(k)
-         if k[14:17] == 'Sep':
+         if k[15:18] == 'Sep':
              sep.append(k)
-         if k[14:17] == 'Oct':
+         if k[15:18] == 'Oct':
              Oct.append(k)
-         if k[14:17] == 'Nov':
+         if k[15:18] == 'Nov':
              nov.append(k)
-         if k[14:17] == 'Dec':
+         if k[15:18] == 'Dec':
              dec.append(k)
              
      for i in local:
@@ -144,9 +144,9 @@ print(f"Total Request in October: {Oct1}")
 print(f"Total Request in November: {nov1}")
 print(f"Total Request in December: {dec1}\n")
 
-print(total, "\n")
-print(len(remote), "\n")
-print(len(local), "\n")
+print(total, "total from dates\n")
+print(len(remote), "total from remote\n")
+print(len(local), "total from local\n")
 
 print(f"Total Requests: {total_requests}\n")
 print(f"Total 4xx errors: {failed_req}")
