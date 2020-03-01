@@ -1,4 +1,5 @@
 from urllib.request import urlretrieve
+from collections import Counter
 
 local = []
 remote = []
@@ -9,6 +10,9 @@ most_requested_file = ''
 requests_per_day = ''
 requests_per_week = ''
 requests_per_month = ''
+resr = []
+resl = []
+resl2 = []
 
 jan = []
 feb = []
@@ -147,6 +151,51 @@ print(f"Total Request in December: {dec1}\n")
 print(total, "total from dates\n")
 print(len(remote), "total from remote\n")
 print(len(local), "total from local\n")
+################################################
 
+for line in local:        #splits line into types to dissect
+    Type = line.split(" ")
+    a = Type[1]
+    b = Type[2]
+    c = Type[3]
+    d = Type[4]
+    e = Type[5]
+    f = Type[6]
+    resl.append(f)
+    
+
+#for i in remote:       #splits line into types to dissect 
+    #Type = i.split(" ")
+    #g = Type[1]
+    #h = Type[2]
+    #i = Type[3]
+    #j = Type[4]
+    #k = Type[5]
+    #l = Type[6]
+    #resr.append(f)
+
+
+#for i in resl:              #finding the most accessed file in local 
+#    if resl.count(i) > 500:
+#        resl2.append(i)
+#print(resl2)
+
+
+
+#resl1 = []
+
+#resl1 = [item for items, c in Counter(resl).most_common() for item in [items] * c]
+
+#print(resl[0])
+#print(resl[1])
+#print(resl[2])
+
+
+print(len(resl), "Local file name total\n")
+print(len(resr), "Remote file name total\n")
+
+
+
+##############################################
 print(f"Total Requests: {total_requests}\n")
 print(f"Total 4xx errors: {failed_req}")
