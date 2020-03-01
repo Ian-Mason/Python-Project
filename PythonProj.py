@@ -133,7 +133,7 @@ total = len(jan)+len(feb)+len(mar)+len(apr)+len(may)+len(jun)+len(jul)+len(apr)+
 
 file.close()
 
-print('File Downloaded\n')
+print('--------------Data is now being Dissected--------------\n')
 
 print(f"Total Request in January: {jan1}")
 print(f"Total Request in February: {feb1}")
@@ -175,20 +175,13 @@ for line in local:        #splits line into types to dissect
     #resr.append(f)
 
 
-#for i in resl:              #finding the most accessed file in local 
-#    if resl.count(i) > 500:
-#        resl2.append(i)
-#print(resl2)
+resl2 = [(k,v) for k,v in Counter(resl).items() if v > 5000]  #finds most accessed
+resl2.sort(key=lambda kv: kv[1])
+resl2 = [k for k,v in resl2]
 
-
-
-#resl1 = []
-
-#resl1 = [item for items, c in Counter(resl).most_common() for item in [items] * c]
-
-#print(resl[0])
-#print(resl[1])
-#print(resl[2])
+resl3 = [(x,t) for x,t in Counter(resl).items() if t <= 1]  #finds least accessed
+resl3.sort(key=lambda xt: xt[1])
+resl3 = [x for x,t in resl3]
 
 
 print(len(resl), "Local file name total\n")
@@ -196,6 +189,13 @@ print(len(resr), "Remote file name total\n")
 
 
 
+
 ##############################################
+print(f"The File that is most accessed is: {resl2[0]}\n")   #only for local
+print(f"The File that is least accessed is: {resl3[0]}\n")  #only for local
 print(f"Total Requests: {total_requests}\n")
-print(f"Total 4xx errors: {failed_req}")
+print(f"Total 4xx errors: {failed_req}\n")
+
+
+file.close()
+print("--------------Data Dissected--------------")
