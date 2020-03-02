@@ -30,7 +30,6 @@ dec = []
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 LOCAL_FILE = 'local_copy.log'
 
-
 local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE)
 
 with open(LOCAL_FILE, 'r') as file:
@@ -78,8 +77,7 @@ with open(LOCAL_FILE, 'r') as file:
              nov.append(k)
          if k[14:17] == 'Dec':
              dec.append(k)
-             
-             
+                     
      for k in remote:
          if k[15:18] == 'Jan':
              jan.append(k)
@@ -166,7 +164,6 @@ with open(LOCAL_FILE, 'r') as file:
          elif i[0] =='4':
              failed_req.append(i)
                  
-
 jan1 = len(jan)
 feb1 = len(feb)
 mar1 = len(mar)
@@ -239,13 +236,11 @@ resl3 = [x for x,t in resl3]
 #print(len(resl), "Local file name total\n")
 #print(len(resr), "Remote file name total\n")
 
-
 print(f"The File that is most accessed is: {resl2[0]}\n")   #only for local
 print(f"The File that is least accessed is: {resl3[0]}\n")  #only for local
 print(f"Total Requests: {total_requests}\n")
-print(f"4xx Error %: {round(failed_percent,2)}\n")
-print(f"3xx Error %: {round(redirected_percent,2)}\n")
-
+print(f"4xx Error: {round(failed_percent,2)}%\n")
+print(f"3xx Error: {round(redirected_percent,2)}%\n")
 
 file.close()
 print("--------------Data Dissected--------------")
