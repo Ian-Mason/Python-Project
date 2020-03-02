@@ -142,33 +142,33 @@ with open(LOCAL_FILE, 'r') as file:
              Local2.remove(i)
      
      for i in Local2:
+         
          if len(i.split()) <= 8:
              Local2.remove(i)
          else:
              num = i.split()[8]
              local_nums.append(num)
      
-#     for i in local_nums:
-#         if i == 'HTTP/1.0"' or 'University':
-#             local_nums.remove(i)
-#         elif int(i) >= 400:
-#             failed_req.append(i)
-#             print('yes')
-#         elif int(i) >= 300:
-#             if int(i) < 400:
-#                 if int(i)>299:
-#                     redirected_req.append(i)
-#             
-#     for i in remote_nums:
-#         if i == 'HTTP/1.0"' or 'University':
-#             remote_nums.remove(i)
-#         elif int(i) >= 400:
-#             failed_req.append(i)
-#             print('yes')
-#         elif int(i) >= 300:
-#             if int(i) < 400:
-#                 if int(i)>299:
-#                     redirected_req.append(i)
+     for i in local_nums:
+         if i == 'Nails' or '-':
+             local_nums.remove(i)
+         else:
+             if int(i) >= 400:
+                 failed_req.append(i)
+                 
+             elif int(i) >= 300:
+                 if int(i) < 400:
+                     if int(i)>299:
+                         redirected_req.append(i)
+             
+     for i in remote_nums:
+         if i == 'Nails' or '-':
+             remote_nums.remove(i)
+         else:
+             if int(i) >= 400:
+                 failed_req.append(i)
+                 print('yes')
+             
              
          
      
@@ -191,7 +191,7 @@ total = len(jan)+len(feb)+len(mar)+len(apr)+len(may)+len(jun)+len(jul)+len(apr)+
 
 file.close()
 
-failed_percent = int()
+failed_percent = (len(failed_req)/len(total_req_list))*100
 redirected_percent = int()
 
 print('--------------Data is now being Dissected--------------\n')
