@@ -256,8 +256,8 @@ print(len(resr), "Remote file name total\n")
 print(f"The File that is most accessed is: {resl2[0]}\n")   #only for local
 print(f"The File that is least accessed is: {resl3[0]}\n")  #only for local
 print(f"Total Requests: {total_requests}\n")
-print(f"4xx Error %: {failed_percent}\n")
-print(f"3xx Error %: {redirected_percent}\n")
+print(f"4xx Error %: {round(failed_percent,2)}\n")
+print(f"3xx Error %: {round(redirected_percent,2)}\n")
 
 
 file.close()
