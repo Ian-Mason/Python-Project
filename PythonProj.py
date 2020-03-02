@@ -112,35 +112,45 @@ with open(LOCAL_FILE, 'r') as file:
      total_req_list = remote + local
      split_elements = []
      
-     for i in total_req_list:
-         req_split = i.split()
-         for k in req_split:
-             split_elements.append(k)
+#     for i in total_req_list:
+#         req_split = i.split()
+#         for k in req_split:
+#             split_elements.append(k)
+     
      
      Local2 = local
      Remote2 = remote
+     local_nums = []
+     remote_nums = []
      
-     for i in Local2:
-         if i == 'HTTP/1.0"' or 'University':
-             Local2.remove(i)
-         elif int(i) >= 400:
-             failed_req.append(i)
-             print('yes')
-         elif int(i) >= 300:
-             if int(i) < 400:
-                 if int(i)>299:
-                     redirected_req.append(i)
-             
      for i in Remote2:
-         if i == 'HTTP/1.0"' or 'University':
-             Remote2.remove(i)
-         elif int(i) >= 400:
-             failed_req.append(i)
-             print('yes')
-         elif int(i) >= 300:
-             if int(i) < 400:
-                 if int(i)>299:
-                     redirected_req.append(i)
+         num = i.split()[8]
+         remote_nums.append(num)
+     for i in Local2:
+         num = i.split()[8]
+         local_nums.append(num)
+     
+#     for i in local_nums:
+#         if i == 'HTTP/1.0"' or 'University':
+#             local_nums.remove(i)
+#         elif int(i) >= 400:
+#             failed_req.append(i)
+#             print('yes')
+#         elif int(i) >= 300:
+#             if int(i) < 400:
+#                 if int(i)>299:
+#                     redirected_req.append(i)
+#             
+#     for i in remote_nums:
+#         if i == 'HTTP/1.0"' or 'University':
+#             remote_nums.remove(i)
+#         elif int(i) >= 400:
+#             failed_req.append(i)
+#             print('yes')
+#         elif int(i) >= 300:
+#             if int(i) < 400:
+#                 if int(i)>299:
+#                     redirected_req.append(i)
              
          
      
