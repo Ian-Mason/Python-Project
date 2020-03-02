@@ -150,24 +150,24 @@ with open(LOCAL_FILE, 'r') as file:
              local_nums.append(num)
      
      for i in local_nums:
-         if i == 'Nails' or '-':
-             local_nums.remove(i)
-         else:
-             if i[0] == '3':
-                 redirected_req.append(i)
+#         if i == 'Nails' or '-':
+#             local_nums.remove(i)
+#         else:
+         if i[0] == '3':
+             redirected_req.append(i)
                  
-             elif i[0] =='4':
-                 failed_req.append(i)
+         elif i[0] =='4':
+             failed_req.append(i)
              
+#     for i in remote_nums:
+#         if i == 'Nails' or '-':
+#             remote_nums.remove(i)
      for i in remote_nums:
-         if i == 'Nails' or '-':
-             remote_nums.remove(i)
-         else:
-             if i[0] == '3':
-                 redirected_req.append(i)
+         if i[0] == '3':
+             redirected_req.append(i)
                  
-             elif i[0] =='4':
-                 failed_req.append(i)
+         elif i[0] =='4':
+             failed_req.append(i)
                  
              
              
@@ -193,7 +193,7 @@ total = len(jan)+len(feb)+len(mar)+len(apr)+len(may)+len(jun)+len(jul)+len(apr)+
 file.close()
 
 failed_percent = (len(failed_req)/len(total_req_list))*100
-redirected_percent = int()
+redirected_percent = (len(redirected_req)/len(total_req_list))*100
 
 print('--------------Data is now being Dissected--------------\n')
 
