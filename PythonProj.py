@@ -107,18 +107,12 @@ with open(LOCAL_FILE, 'r') as file:
      total_requests = len(local)+len(remote)
      total_req_list = remote + local
      split_elements = []
-     
-#     for i in total_req_list:
-#         req_split = i.split()
-#         for k in req_split:
-#             split_elements.append(k)
-        
+           
      Local2 = local
      Remote2 = remote
      local_nums = []
      remote_nums = []
      short_reqs = []
-     
      
      for i in Remote2:
          if len(i.split()) <= 8:
@@ -137,7 +131,6 @@ with open(LOCAL_FILE, 'r') as file:
              Local2.remove(i)
      
      for i in Local2:
-         
          if len(i.split()) <= 8:
              Local2.remove(i)
          else:
@@ -172,13 +165,10 @@ with open(LOCAL_FILE, 'r') as file:
          else:
              element = i.split
              if element[0] == '3':
-                 redirected_req.append(i)
-                 
-                         
+                 redirected_req.append(i)  
              elif element[0] =='4':
                  failed_req.append(i)
-                 
-                 
+                    
 jan1 = len(jan)
 feb1 = len(feb)
 mar1 = len(mar)
@@ -193,8 +183,6 @@ nov1 = len(nov)
 dec1 = len(dec)
 
 total = len(jan)+len(feb)+len(mar)+len(apr)+len(may)+len(jun)+len(jul)+len(apr)+len(sep)+len(Oct)+len(nov)+len(dec)
-
-file.close()
 
 failed_percent = (len(failed_req)/len(total_req_list))*100
 redirected_percent = (len(redirected_req)/len(total_req_list))*100
@@ -217,7 +205,6 @@ print(f"Total Request in December: {dec1}\n")
 print(total, "total from dates\n")
 print(len(remote), "total from remote\n")
 print(len(local), "total from local\n")
-
 
 for line in local:        #splits line into types to dissect
     Type = line.split(" ")
