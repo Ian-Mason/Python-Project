@@ -122,13 +122,31 @@ with open(LOCAL_FILE, 'r') as file:
      Remote2 = remote
      local_nums = []
      remote_nums = []
+     short_reqs = []
+     
      
      for i in Remote2:
-         num = i.split()[8]
-         remote_nums.append(num)
+         if len(i.split()) <= 8:
+             short_reqs.append(i)
+             Remote2.remove(i)
+     
+     for i in Remote2:
+         if len(i.split()) <= 8:
+             Remote2.remove(i)
+         else:
+             num = i.split()[8]
+             remote_nums.append(num)
      for i in Local2:
-         num = i.split()[8]
-         local_nums.append(num)
+         if len(i.split()) <= 8:
+             short_reqs.append(i)
+             Local2.remove(i)
+     
+     for i in Local2:
+         if len(i.split()) <= 8:
+             Local2.remove(i)
+         else:
+             num = i.split()[8]
+             local_nums.append(num)
      
 #     for i in local_nums:
 #         if i == 'HTTP/1.0"' or 'University':
