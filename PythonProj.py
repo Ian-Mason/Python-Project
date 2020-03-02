@@ -246,8 +246,8 @@ resl3.sort(key=lambda xt: xt[1])
 resl3 = [x for x,t in resl3]
 
 
-print(len(resl), "Local file name total\n")
-print(len(resr), "Remote file name total\n")
+#print(len(resl), "Local file name total\n")
+#print(len(resr), "Remote file name total\n")
 
 
 
