@@ -108,11 +108,41 @@ with open(LOCAL_FILE, 'r') as file:
          if k[15:18] == 'Dec':
              dec.append(k)
              
-     for i in local:
-         for k in i.split():
-             if k == '3xx':
-                 failed_req.append(i)
      total_requests = len(local)+len(remote)
+     total_req_list = remote + local
+     split_elements = []
+     
+     for i in total_req_list:
+         req_split = i.split()
+         for k in req_split:
+             split_elements.append(k)
+     
+     Local2 = local
+     Remote2 = remote
+     
+     for i in Local2:
+         if i == 'HTTP/1.0"' or 'University':
+             Local2.remove(i)
+         elif int(i) >= 400:
+             failed_req.append(i)
+             print('yes')
+         elif int(i) >= 300:
+             if int(i) < 400:
+                 if int(i)>299:
+                     redirected_req.append(i)
+             
+     for i in Remote2:
+         if i == 'HTTP/1.0"' or 'University':
+             Remote2.remove(i)
+         elif int(i) >= 400:
+             failed_req.append(i)
+             print('yes')
+         elif int(i) >= 300:
+             if int(i) < 400:
+                 if int(i)>299:
+                     redirected_req.append(i)
+             
+         
      
      
 
@@ -132,6 +162,9 @@ dec1 = len(dec)
 total = len(jan)+len(feb)+len(mar)+len(apr)+len(may)+len(jun)+len(jul)+len(apr)+len(sep)+len(Oct)+len(nov)+len(dec)
 
 file.close()
+
+failed_percent = int()
+redirected_percent = int()
 
 print('--------------Data is now being Dissected--------------\n')
 
@@ -165,11 +198,14 @@ for line in local:        #splits line into types to dissect
     
 
 #for i in remote:       #splits line into types to dissect 
-#    resres = i.split(" ")
-#    resr.append(resres[6])
-    
-#print(resr)
-    
+    #Type = i.split(" ")
+    #g = Type[1]
+    #h = Type[2]
+    #i = Type[3]
+    #j = Type[4]
+    #k = Type[5]
+    #l = Type[6]
+    #resr.append(f)
 
 
 resl2 = [(k,v) for k,v in Counter(resl).items() if v > 5000]  #finds most accessed
@@ -181,8 +217,8 @@ resl3.sort(key=lambda xt: xt[1])
 resl3 = [x for x,t in resl3]
 
 
-#print(len(resl), "Local file name total\n")
-#print(len(resr), "Remote file name total\n")
+print(len(resl), "Local file name total\n")
+print(len(resr), "Remote file name total\n")
 
 
 
@@ -191,7 +227,8 @@ resl3 = [x for x,t in resl3]
 print(f"The File that is most accessed is: {resl2[0]}\n")   #only for local
 print(f"The File that is least accessed is: {resl3[0]}\n")  #only for local
 print(f"Total Requests: {total_requests}\n")
-print(f"Total 4xx errors: {failed_req}\n")
+print(f"4xx Error %: {failed_percent}\n")
+print(f"3xx Error %: {redirected_percent}\n")
 
 
 file.close()
