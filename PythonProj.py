@@ -153,21 +153,22 @@ with open(LOCAL_FILE, 'r') as file:
          if i == 'Nails' or '-':
              local_nums.remove(i)
          else:
-             if int(i) >= 400:
-                 failed_req.append(i)
+             if i[0] == '3':
+                 redirected_req.append(i)
                  
-             elif int(i) >= 300:
-                 if int(i) < 400:
-                     if int(i)>299:
-                         redirected_req.append(i)
+             elif i[0] =='4':
+                 failed_req.append(i)
              
      for i in remote_nums:
          if i == 'Nails' or '-':
              remote_nums.remove(i)
          else:
-             if int(i) >= 400:
+             if i[0] == '3':
+                 redirected_req.append(i)
+                 
+             elif i[0] =='4':
                  failed_req.append(i)
-                 print('yes')
+                 
              
              
          
