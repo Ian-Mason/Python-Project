@@ -165,14 +165,11 @@ for line in local:        #splits line into types to dissect
     
 
 #for i in remote:       #splits line into types to dissect 
-    #Type = i.split(" ")
-    #g = Type[1]
-    #h = Type[2]
-    #i = Type[3]
-    #j = Type[4]
-    #k = Type[5]
-    #l = Type[6]
-    #resr.append(f)
+#    resres = i.split(" ")
+#    resr.append(resres[6])
+    
+#print(resr)
+    
 
 
 resl2 = [(k,v) for k,v in Counter(resl).items() if v > 5000]  #finds most accessed
@@ -184,8 +181,8 @@ resl3.sort(key=lambda xt: xt[1])
 resl3 = [x for x,t in resl3]
 
 
-print(len(resl), "Local file name total\n")
-print(len(resr), "Remote file name total\n")
+#print(len(resl), "Local file name total\n")
+#print(len(resr), "Remote file name total\n")
 
 
 
