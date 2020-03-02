@@ -163,6 +163,21 @@ with open(LOCAL_FILE, 'r') as file:
                  
          elif i[0] =='4':
              failed_req.append(i)
+     for i in short_reqs:
+         if i == 'remote 200 329    index.html\n' or 'remote HTTP/1.0" 200 55124   index.html\n':
+             short_reqs.remove(i)
+         elif i == 'remote 304 0    index.html\n':
+             redirected_req.append(i.split()[1])
+         
+         else:
+             element = i.split
+             if element[0] == '3':
+                 redirected_req.append(i)
+                 
+                         
+             elif element[0] =='4':
+                 failed_req.append(i)
+                 
                  
 jan1 = len(jan)
 feb1 = len(feb)
