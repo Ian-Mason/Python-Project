@@ -27,8 +27,6 @@ Oct = []
 nov = []
 dec = []
 
-
-
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 LOCAL_FILE = 'local_copy.log'
 
@@ -116,8 +114,7 @@ with open(LOCAL_FILE, 'r') as file:
 #         req_split = i.split()
 #         for k in req_split:
 #             split_elements.append(k)
-     
-     
+        
      Local2 = local
      Remote2 = remote
      local_nums = []
@@ -169,11 +166,6 @@ with open(LOCAL_FILE, 'r') as file:
          elif i[0] =='4':
              failed_req.append(i)
                  
-             
-             
-         
-     
-     
 
 jan1 = len(jan)
 feb1 = len(feb)
@@ -213,7 +205,7 @@ print(f"Total Request in December: {dec1}\n")
 print(total, "total from dates\n")
 print(len(remote), "total from remote\n")
 print(len(local), "total from local\n")
-################################################
+
 
 for line in local:        #splits line into types to dissect
     Type = line.split(" ")
@@ -236,7 +228,6 @@ for line in local:        #splits line into types to dissect
     #l = Type[6]
     #resr.append(f)
 
-
 resl2 = [(k,v) for k,v in Counter(resl).items() if v > 5000]  #finds most accessed
 resl2.sort(key=lambda kv: kv[1])
 resl2 = [k for k,v in resl2]
@@ -245,14 +236,10 @@ resl3 = [(x,t) for x,t in Counter(resl).items() if t <= 1]  #finds least accesse
 resl3.sort(key=lambda xt: xt[1])
 resl3 = [x for x,t in resl3]
 
-
 #print(len(resl), "Local file name total\n")
 #print(len(resr), "Remote file name total\n")
 
 
-
-
-##############################################
 print(f"The File that is most accessed is: {resl2[0]}\n")   #only for local
 print(f"The File that is least accessed is: {resl3[0]}\n")  #only for local
 print(f"Total Requests: {total_requests}\n")
